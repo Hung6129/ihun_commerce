@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ihun_commerce/data/models/product.dart';
+
 import 'package:ihun_commerce/logic/cart_bloc/cart_bloc.dart';
 import 'package:ihun_commerce/logic/products_bloc/products_bloc.dart';
 import 'package:ihun_commerce/views/cart/cart_page.dart';
+import 'package:ihun_commerce/views/detail/detail_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -57,8 +59,8 @@ class _HomePageState extends State<HomePage> {
                                     color: Colors.redAccent,
                                     borderRadius: BorderRadius.circular(30),
                                   ),
-                                  width: 15,
-                                  height: 15,
+                                  width: 20,
+                                  height: 20,
                                   child: Center(
                                     child: Text(
                                       state.cart.items.length.toString(),
@@ -86,6 +88,14 @@ class _HomePageState extends State<HomePage> {
                 : ListView.builder(
                     itemCount: listData.length,
                     itemBuilder: (context, index) => ListTile(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailPage(
+                            product: listData[index],
+                          ),
+                        ),
+                      ),
                       contentPadding: const EdgeInsets.all(10),
                       subtitle: Text(
                         listData[index].price!.toString(),
@@ -126,7 +136,6 @@ class AddButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
         return switch (state) {
@@ -136,9 +145,6 @@ class AddButton extends StatelessWidget {
               builder: (context) {
                 final isInCart = state.cart.items.contains(item);
                 return TextButton(
-                  style: TextButton.styleFrom(
-                    disabledForegroundColor: theme.primaryColor,
-                  ),
                   onPressed: isInCart
                       ? null
                       : () => context.read<CartBloc>().add(CartItemAdded(item)),

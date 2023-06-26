@@ -12,7 +12,7 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
     on<LoadListProducts>((event, emit) async {
       emit(ProductsLoading());
       try {
-        final listProduct = await ApiProvider().fetchListProducts();
+        final listProduct = await ApiProvider.instance.fetchListProducts();
         emit(ProductsLoaded(listProduct: listProduct));
       } catch (e) {
         emit(ProductsError(err: e.toString()));

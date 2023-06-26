@@ -8,21 +8,20 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Cart')),
-      body: const ColoredBox(
-        color: Colors.yellow,
-        child: Column(
-          children: [
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.all(32),
-                child: CartList(),
-              ),
+      appBar: AppBar(title: const Text('Cart Page')),
+      body: const Column(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(32),
+              child: CartList(),
             ),
-            Divider(height: 4, color: Colors.black),
-            CartTotal()
-          ],
-        ),
+          ),
+          Divider(
+            height: 4,
+          ),
+          CartTotal()
+        ],
       ),
     );
   }
@@ -33,8 +32,6 @@ class CartList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final itemNameStyle = Theme.of(context).textTheme.titleLarge;
-
     return BlocBuilder<CartBloc, CartState>(
       builder: (context, state) {
         return switch (state) {
@@ -52,7 +49,7 @@ class CartList extends StatelessWidget {
                   clipBehavior: Clip.hardEdge,
                   child: ListTile(
                     leading: const Icon(Icons.done),
-                    title: Text(item.title!, style: itemNameStyle),
+                    title: Text(item.title!),
                     onLongPress: () {
                       context.read<CartBloc>().add(CartItemRemoved(item));
                     },
@@ -71,9 +68,6 @@ class CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hugeStyle =
-        Theme.of(context).textTheme.displayLarge?.copyWith(fontSize: 48);
-
     return SizedBox(
       height: 200,
       child: Center(
@@ -86,8 +80,8 @@ class CartTotal extends StatelessWidget {
                   CartLoading() => const CircularProgressIndicator(),
                   CartError() => const Text('Something went wrong!'),
                   CartLoaded() => Text(
-                      'Total ${state.cart.items.length} : \$${state.cart.totalPrice}',
-                      style: hugeStyle),
+                      'Total ${state.cart.items.length} items: \$${state.cart.totalPrice}',
+                    ),
                 };
               },
             ),
@@ -98,7 +92,6 @@ class CartTotal extends StatelessWidget {
                   const SnackBar(content: Text('Buying not supported yet.')),
                 );
               },
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.black),
               child: const Text('BUY'),
             ),
           ],
