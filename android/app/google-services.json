@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "779551040648",
+    "project_id": "ihun-ecommerce",
+    "storage_bucket": "ihun-ecommerce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779551040648:android:20ede6d206309f6b642b3d",
+        "android_client_info": {
+          "package_name": "com.example.ihun_commerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "779551040648-48oodree6i7v7dmbth3edv1shjv8n8jh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFHdwe4v2xd3cud2dfVVeIVMwMlkzXMh0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "779551040648-48oodree6i7v7dmbth3edv1shjv8n8jh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -45,6 +45,11 @@ dependencies:
   meta: ^1.9.1
   flutter_screenutil: ^5.8.4
   font_awesome_flutter: ^10.4.0
+  
+  firebase_core: ^2.14.0
+  firebase_auth: ^4.6.3
+  firebase_ui_auth: ^1.5.0
+  fluttertoast: ^8.2.2
 
 dev_dependencies:
   flutter_test:

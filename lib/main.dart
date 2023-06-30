@@ -1,14 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ihun_commerce/data/services/shopping_repo.dart';
+import 'package:ihun_commerce/logic/authenticate/sign_in_bloc/sign_in_bloc.dart';
 import 'package:ihun_commerce/logic/cart_bloc/cart_bloc.dart';
 import 'package:ihun_commerce/logic/products_bloc/products_bloc.dart';
 import 'package:ihun_commerce/utility/helpers/color_seed.dart';
 import 'package:ihun_commerce/views/authenticate/sign_in/sign_in_page.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -27,6 +31,7 @@ class _MyAppState extends State<MyApp> {
   bool get useLightMode {
     switch (themeMode) {
       case ThemeMode.system:
+        // ignore: deprecated_member_use
         return SchedulerBinding.instance.window.platformBrightness ==
             Brightness.light;
       case ThemeMode.light:
@@ -54,6 +59,9 @@ class _MyAppState extends State<MyApp> {
     final shoppingRepository = ShoppingRepository();
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (context) => SignInBloc(),
+        ),
         BlocProvider(
           create: (context) => ProductsBloc()
             ..add(

@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:ihun_commerce/views/authenticate/sign_in/sign_in_page.dart';
 import 'package:ihun_commerce/views/authenticate/widgets/clear_btn.dart';
 
@@ -28,7 +29,7 @@ class _SignUpPageState extends State<SignUpPage> {
             child: Text(
               'Creating new account for\nihunEcommerce',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 30.sp),
+              style: TextStyle(fontSize: 25.sp),
             ),
           ),
           Padding(
@@ -63,7 +64,7 @@ class _SignUpPageState extends State<SignUpPage> {
             padding: EdgeInsets.symmetric(horizontal: 30.w),
             child: Center(
               child: TextField(
-                controller: _emailController,
+                controller: _passwordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.password),

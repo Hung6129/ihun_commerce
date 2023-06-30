@@ -11,6 +11,7 @@ class ApiProvider {
   Future<List<Product>> fetchListProducts() async {
     _dio.options.connectTimeout = const Duration(seconds: 5);
     try {
+      _dio.post(url);
       final response = await _dio.get(
         url,
         queryParameters: {
