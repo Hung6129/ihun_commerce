@@ -1,3 +1,4 @@
+import 'package:ihun_commerce/src/common/services/constant.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class StorageServices {
@@ -8,5 +9,22 @@ class StorageServices {
     return this;
   }
 
+  Future<bool> setBool(String key, bool value) async {
+    return await _preferences.setBool(key, value);
+  }
 
+  bool getDeviceFirstOpen() {
+    return _preferences.getBool(AppConstant.STORAGE_DEVICE_OPEN_FIRST_TIME) ??
+        false;
+  }
+
+  Future<bool> setString(String key, String value) async {
+    return await _preferences.setString(key, value);
+  }
+
+  bool getIsSignedIn() {
+    return _preferences.getString(AppConstant.STORAGE_USER_TOKEN_KEY) == null
+        ? false
+        : true;
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ihun_commerce/global.dart';
 
 import 'package:ihun_commerce/src/views/authenticate/sign_in/sign_in_page.dart';
 import 'package:ihun_commerce/src/views/authenticate/sign_up/sign_up_page.dart';
@@ -50,14 +51,20 @@ class AppRoutesPages {
       // check for route name matching when navigator gets trigger
       var res = routes().where((element) => element.routePath == settings.name);
       if (res.isNotEmpty) {
-        print('vaild route name ${settings.name}');
+        bool isUserSignedIn = Global.storageServices.getIsSignedIn();
+
+        if (isUserSignedIn == true) {
+          return MaterialPageRoute(
+            builder: (_) => const MainPage(),
+            settings: settings,
+          );
+        }
         return MaterialPageRoute(
           builder: (_) => res.first.page,
           settings: settings,
         );
       }
     }
-    print('invaild route name ${settings.name}');
     return MaterialPageRoute(
       builder: (context) => const SignInPage(),
       settings: settings,

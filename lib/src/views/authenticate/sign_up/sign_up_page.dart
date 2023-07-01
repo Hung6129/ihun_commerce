@@ -80,7 +80,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ontap: () {},
             ),
             const CusDivider(),
-            const CusAuthNav(authNavType: 'signUp', navTo: '/sign_in')
+            const CusAuthNav(authNavType: 'signUp', navTo: '/')
           ],
         ),
       ),

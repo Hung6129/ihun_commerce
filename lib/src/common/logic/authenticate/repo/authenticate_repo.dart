@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ihun_commerce/global.dart';
+import 'package:ihun_commerce/src/common/services/constant.dart';
 
 import '../../../toast/flutter_toast.dart';
 import '../sign_in_bloc/sign_in_bloc.dart';
@@ -46,7 +48,8 @@ class AuthenticateRepo {
           var user = userCredential.user;
           if (user != null) {
             toastInfor(text: "Successfully sign in");
-            Future.delayed(const Duration(seconds: 1));
+            Global.storageServices
+                .setString(AppConstant.STORAGE_USER_TOKEN_KEY, '123456');
             // ignore: use_build_context_synchronously
             Navigator.pushNamedAndRemoveUntil(
               context,
