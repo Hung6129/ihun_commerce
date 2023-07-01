@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,7 +5,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ihun_commerce/logic/authenticate/repo/authenticate_repo.dart';
 import 'package:ihun_commerce/logic/authenticate/sign_in_bloc/sign_in_bloc.dart';
 import 'package:ihun_commerce/views/authenticate/sign_up/sign_up_page.dart';
-import 'package:ihun_commerce/views/authenticate/widgets/clear_btn.dart';
+
+import 'package:ihun_commerce/views/authenticate/widgets/cus_auth_nav_sign.dart';
+import 'package:ihun_commerce/views/authenticate/widgets/cus_divider.dart';
+import 'package:ihun_commerce/views/authenticate/widgets/cus_textfeild.dart';
+import 'package:ihun_commerce/views/authenticate/widgets/forgot_password.dart';
+import 'package:ihun_commerce/views/authenticate/widgets/signin_with_thirdparty.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -34,42 +38,20 @@ class _SignInPageState extends State<SignInPage> {
                 style: TextStyle(fontSize: 25.sp),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
-              child: Center(
-                child: TextField(
-                  onChanged: (value) {
-                    value == _emailController.text;
-                    context.read<SignInBloc>().add(SignInEmail(value));
-                  },
-                  controller: _emailController,
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.email),
-                    suffixIcon: ClearButton(controller: _emailController),
-                    labelText: 'Type your email',
-                    border: const OutlineInputBorder(),
-                  ),
-                ),
-              ),
+            CusTextFeild(
+              onChange: (value) =>
+                  context.read<SignInBloc>().add(SignInEmail(value)),
+              controller: _emailController,
+              lblText: 'Enter your email',
+              iconData: Icons.email,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30.w),
-              child: Center(
-                child: TextField(
-                  onChanged: (value) {
-                    value == _passwordController.text;
-                    context.read<SignInBloc>().add(SignInPassword(value));
-                  },
-                  controller: _passwordController,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.password),
-                    suffixIcon: ClearButton(controller: _passwordController),
-                    labelText: 'Type your password',
-                    border: const OutlineInputBorder(),
-                  ),
-                ),
-              ),
+            CusTextFeild(
+              onChange: (value) =>
+                  context.read<SignInBloc>().add(SignInPassword(value)),
+              controller: _passwordController,
+              lblText: 'Enter your password',
+              iconData: Icons.lock,
+              txtfType: 'password',
             ),
             SizedBox(
               height: 10.h,
@@ -81,66 +63,16 @@ class _SignInPageState extends State<SignInPage> {
                 },
                 icon: const FaIcon(FontAwesomeIcons.arrowRightToBracket),
                 label: const Text('Sign In')),
+            ForgotPassword(
+              ontap: () {},
+            ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
               child: const Text('Or sign in with'),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: const FaIcon(
-                    FontAwesomeIcons.google,
-                    color: Colors.redAccent,
-                  ),
-                  label: const Text('Google'),
-                ),
-                SizedBox(
-                  width: 10.w,
-                ),
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: const FaIcon(
-                    FontAwesomeIcons.facebook,
-                    color: Colors.blueAccent,
-                  ),
-                  label: const Text('Facebook'),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Divider(
-                indent: 30.w,
-                endIndent: 30.w,
-              ),
-            ),
-            Text.rich(
-              TextSpan(
-                children: [
-                  const TextSpan(text: 'Do not have account yet? '),
-                  TextSpan(
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SignUpPage(),
-                            ),
-                            (route) => false);
-                      },
-                    text: ' Sign up here',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15.sp,
-                      fontStyle: FontStyle.italic,
-                    ),
-                  ),
-                ],
-              ),
-            )
+            SignInWithThirdParty(ggSignIn: () {}, fbSignIn: () {}),
+            const CusDivider(),
+            const CusAuthNav(authNavType: 'signIn', navTo: SignUpPage())
           ],
         ),
       ),

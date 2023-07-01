@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ihun_commerce/data/services/shopping_repo.dart';
-import 'package:ihun_commerce/logic/authenticate/sign_in_bloc/sign_in_bloc.dart';
-import 'package:ihun_commerce/logic/cart_bloc/cart_bloc.dart';
-import 'package:ihun_commerce/logic/products_bloc/products_bloc.dart';
+import 'package:ihun_commerce/utility/bloc_provider/bloc_provider.dart';
 import 'package:ihun_commerce/utility/helpers/color_seed.dart';
 import 'package:ihun_commerce/views/authenticate/sign_in/sign_in_page.dart';
 
@@ -56,24 +53,8 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final shoppingRepository = ShoppingRepository();
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => SignInBloc(),
-        ),
-        BlocProvider(
-          create: (context) => ProductsBloc()
-            ..add(
-              LoadListProducts(),
-            ),
-        ),
-        BlocProvider(
-          create: (_) => CartBloc(
-            shoppingRepository: shoppingRepository,
-          )..add(CartStarted()),
-        )
-      ],
+      providers: AppBlocProvider.allBlocProvider,
       child: ScreenUtilInit(
         builder: (context, child) => MaterialApp(
           title: 'iHun E-Commerce',
