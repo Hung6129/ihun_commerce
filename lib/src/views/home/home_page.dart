@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ihun_commerce/src/views/home/widgets/home_widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'widgets/home_page_widgets.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,10 +15,21 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: homeAppBar(),
-      body: const Column(
-        children: [
-          CarouselWithIndicatorDemo(),
-        ],
+      body: Padding(
+        padding: EdgeInsets.all(10.h),
+        child: CustomScrollView(
+          slivers: [
+            const SliverToBoxAdapter(
+              child: CarouselWithIndicatorDemo(),
+            ),
+            SliverToBoxAdapter(
+              child: menuText(),
+            ),
+            SliverPadding(
+                padding: EdgeInsets.symmetric(vertical: 5.h),
+                sliver: sliverGridItem(imgList)),
+          ],
+        ),
       ),
     );
   }

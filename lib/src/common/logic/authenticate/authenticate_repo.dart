@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ihun_commerce/global.dart';
-import 'package:ihun_commerce/src/common/services/constant.dart';
+import 'package:ihun_commerce/src/common/logic/services/constant.dart';
 
-import '../../../toast/flutter_toast.dart';
-import '../sign_in_bloc/sign_in_bloc.dart';
-import '../sign_up_bloc/sign_up_bloc.dart';
+import '../../../views/authenticate/sign_in_bloc/sign_in_bloc.dart';
+import '../../../views/authenticate/sign_up_bloc/sign_up_bloc.dart';
+import '../../widgets/flutter_toast.dart';
 
 class AuthenticateRepo {
   final BuildContext context;

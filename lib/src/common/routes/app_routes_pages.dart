@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ihun_commerce/global.dart';
 
-import 'package:ihun_commerce/src/views/authenticate/sign_in/sign_in_page.dart';
-import 'package:ihun_commerce/src/views/authenticate/sign_up/sign_up_page.dart';
+import 'package:ihun_commerce/src/views/authenticate/sign_in_page.dart';
+import 'package:ihun_commerce/src/views/authenticate/sign_up_page.dart';
+import 'package:ihun_commerce/src/views/authenticate/sign_up_bloc/sign_up_bloc.dart';
 import 'package:ihun_commerce/src/views/main_page.dart';
 
-import '../logic/authenticate/sign_in_bloc/sign_in_bloc.dart';
-import '../logic/authenticate/sign_up_bloc/sign_up_bloc.dart';
+import '../../views/authenticate/sign_in_bloc/sign_in_bloc.dart';
+
 import 'app_routes_name.dart';
 
 class AppRoutesPages {

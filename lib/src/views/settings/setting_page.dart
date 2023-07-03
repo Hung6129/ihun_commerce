@@ -16,9 +16,6 @@ class _SettingPageState extends State<SettingPage> {
       appBar: AppBar(
         title: const Text('Setting'),
       ),
-      body: ListView(
-        children: [],
-      ),
     );
   }
 }

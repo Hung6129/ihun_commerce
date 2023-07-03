@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CusTextFeild extends StatelessWidget {
   const CusTextFeild({
@@ -17,7 +18,7 @@ class CusTextFeild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding:  EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
       child: TextField(
         onChanged: onChange,
         controller: controller,
@@ -42,7 +43,6 @@ class ClearButton extends StatelessWidget {
   Widget build(BuildContext context) => IconButton(
         icon: const Icon(Icons.clear),
         onPressed: () {
-          print('tapped');
           controller.clear();
         },
       );
