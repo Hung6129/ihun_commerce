@@ -25,67 +25,65 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SignUpBloc, SignUpState>(
-      builder: (context, state) => SafeArea(
-        child: Scaffold(
-          body: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20.h),
-                  child: Text(
-                    'Creating new account for\nihunEcommerce',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 25.sp),
-                  ),
+      builder: (context, state) => Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 20.h),
+                child: Text(
+                  'Creating new account for\nihunEcommerce',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 25.sp),
                 ),
-                CusTextFeild(
-                    onChange: (value) {
-                      context.read<SignUpBloc>().add(UserNameEvent(value));
-                    },
-                    controller: _usernameController,
-                    lblText: 'Enter your username',
-                    iconData: Icons.person),
-                CusTextFeild(
-                    onChange: (value) {
-                      context.read<SignUpBloc>().add(EmailEvent(value));
-                    },
-                    controller: _emailController,
-                    lblText: 'Enter your email',
-                    iconData: Icons.email_rounded),
-                CusTextFeild(
-                    onChange: (value) {
-                      context.read<SignUpBloc>().add(PasswordEvent(value));
-                    },
-                    controller: _passwordController,
-                    lblText: 'Enter your passwod',
-                    txtfType: 'password',
-                    iconData: Icons.password_rounded),
-                CusTextFeild(
-                    onChange: (value) {
-                      context.read<SignUpBloc>().add(RePasswordEvent(value));
-                    },
-                    controller: _reTypePasswordController,
-                    lblText: 'Retype your passwod',
-                    txtfType: 'password',
-                    iconData: Icons.password_rounded),
-                SizedBox(
-                  height: 20.h,
-                ),
-                ElevatedButton.icon(
-                    onPressed: () {
-                      AuthenticateRepo(context: context).signUp();
-                    },
-                    icon: const FaIcon(FontAwesomeIcons.key),
-                    label: const Text('Sign Up')),
-                ForgotPassword(
-                  ontap: () {},
-                ),
-                const CusDivider(),
-                const CusAuthNav(authNavType: 'signUp', navTo: '/')
-              ],
-            ),
+              ),
+              CusTextFeild(
+                  onChange: (value) {
+                    context.read<SignUpBloc>().add(UserNameEvent(value));
+                  },
+                  controller: _usernameController,
+                  lblText: 'Enter your username',
+                  iconData: Icons.person),
+              CusTextFeild(
+                  onChange: (value) {
+                    context.read<SignUpBloc>().add(EmailEvent(value));
+                  },
+                  controller: _emailController,
+                  lblText: 'Enter your email',
+                  iconData: Icons.email_rounded),
+              CusTextFeild(
+                  onChange: (value) {
+                    context.read<SignUpBloc>().add(PasswordEvent(value));
+                  },
+                  controller: _passwordController,
+                  lblText: 'Enter your passwod',
+                  txtfType: 'password',
+                  iconData: Icons.password_rounded),
+              CusTextFeild(
+                  onChange: (value) {
+                    context.read<SignUpBloc>().add(RePasswordEvent(value));
+                  },
+                  controller: _reTypePasswordController,
+                  lblText: 'Retype your passwod',
+                  txtfType: 'password',
+                  iconData: Icons.password_rounded),
+              SizedBox(
+                height: 20.h,
+              ),
+              ElevatedButton.icon(
+                  onPressed: () {
+                    AuthenticateRepo(context: context).signUp();
+                  },
+                  icon: const FaIcon(FontAwesomeIcons.key),
+                  label: const Text('Sign Up')),
+              ForgotPassword(
+                ontap: () {},
+              ),
+              const CusDivider(),
+              const CusAuthNav(authNavType: 'signUp', navTo: '/')
+            ],
           ),
         ),
       ),

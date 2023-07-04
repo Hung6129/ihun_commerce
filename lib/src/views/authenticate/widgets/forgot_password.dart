@@ -16,7 +16,7 @@ class ForgotPassword extends StatelessWidget {
         onTap: ontap,
         child: Text("Forgot password?",
             style: TextStyle(
-              fontSize: 15.sp,
+              fontSize: 10.sp,
               decoration: TextDecoration.underline,
             )),
       ),

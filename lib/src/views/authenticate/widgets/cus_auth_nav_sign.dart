@@ -34,7 +34,7 @@ class CusAuthNav extends StatelessWidget {
             text: authNavType == 'signIn' ? ' Sign up here ' : ' Sign in here',
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 15.sp,
+              fontSize: 10.sp,
               fontStyle: FontStyle.italic,
             ),
           ),

@@ -21,8 +21,8 @@ const List<NavigationDestination> appBarDestinations = [
   ),
   NavigationDestination(
     tooltip: '',
-    icon: Icon(Icons.settings_outlined),
-    label: 'Setting',
-    selectedIcon: Icon(Icons.settings),
+    icon: Icon(Icons.person_2_outlined),
+    label: 'Profile',
+    selectedIcon: Icon(Icons.person_2),
   ),
 ];

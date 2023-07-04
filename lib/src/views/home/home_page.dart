@@ -26,8 +26,11 @@ class _HomePageState extends State<HomePage> {
               child: menuText(),
             ),
             SliverPadding(
-                padding: EdgeInsets.symmetric(vertical: 5.h),
-                sliver: sliverGridItem(imgList)),
+              padding: EdgeInsets.symmetric(vertical: 5.h),
+              sliver: sliverGridProductItem(
+                imgList,
+              ), 
+            ),
           ],
         ),
       ),

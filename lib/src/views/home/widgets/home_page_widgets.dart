@@ -128,7 +128,7 @@ Widget menuText() {
   );
 }
 
-Widget sliverGridItem(List<String> listItem) {
+Widget sliverGridProductItem(List<String> listItem) {
   return SliverGrid(
     delegate: SliverChildBuilderDelegate(
       childCount: listItem.length,
@@ -174,8 +174,31 @@ Widget sliverGridItem(List<String> listItem) {
                 ],
               ),
             )),
-        placeholder: (context, url) => const CircularProgressIndicator(),
-        errorWidget: (context, url, error) => const Icon(Icons.error),
+        placeholder: (context, url) => Container(
+          width: 100.w,
+          height: 100.h,
+          decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(10.h),
+          ),
+          child: const Center(
+            child: CircularProgressIndicator(),
+          ),
+        ),
+        errorWidget: (context, url, error) => Container(
+          width: 100.w,
+          height: 100.h,
+          decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(10.h),
+          ),
+          child: const Center(
+            child: Icon(
+              Icons.error,
+              color: Colors.redAccent,
+            ),
+          ),
+        ),
       ),
     ),
     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

@@ -6,4 +6,8 @@ class AppRoutesName {
 
   static const SIGN_UP = '/sign_up';
 
+  static const SETTINGS = '/settings';
+
+  static const PAYMENTS = '/payments';
+
 }

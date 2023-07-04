@@ -50,12 +50,13 @@ class AuthenticateRepo {
             toastInfor(text: "Successfully sign in");
             Global.storageServices
                 .setString(AppConstant.STORAGE_USER_TOKEN_KEY, '123456');
+            Global.storageServices.setBool(
+              AppConstant.STORAGE_DEVICE_OPEN_FIRST_TIME,
+              true,
+            );
             // ignore: use_build_context_synchronously
             Navigator.pushNamedAndRemoveUntil(
-              context,
-              '/main_page',
-              (route) => false,
-            );
+                context, '/main_page', (route) => false);
             return;
           } else {
             toastInfor(
