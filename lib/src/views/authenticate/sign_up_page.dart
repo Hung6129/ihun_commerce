@@ -74,7 +74,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               ElevatedButton.icon(
                   onPressed: () {
-                    AuthenticateRepo(context: context).signUp();
+                    AuthenticateRepo(context: context).handleSignUp();
                   },
                   icon: const FaIcon(FontAwesomeIcons.key),
                   label: const Text('Sign Up')),

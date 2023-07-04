@@ -33,7 +33,9 @@ class _ProfilePageState extends State<ProfilePage> {
           () {
             Navigator.of(context).pushNamed(AppRoutesName.SETTINGS);
           },
-          () {},
+          () {
+            Navigator.of(context).pushNamed(AppRoutesName.PAYMENTS);
+          },
           () {},
           () {},
         ),

@@ -83,7 +83,7 @@ class AuthenticateRepo {
   }
 
   // take email and password then hanlde sign up
-  Future<void> signUp() async {
+  Future<void> handleSignUp() async {
     try {
       final state = context.read<SignUpBloc>().state;
       String email = state.email;
@@ -138,5 +138,9 @@ class AuthenticateRepo {
     } catch (e) {
       toastInfor(text: "Something went wrong\nPlease try again next time");
     }
+  }
+
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
   }
 }

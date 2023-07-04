@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ihun_commerce/global.dart';
+import 'package:ihun_commerce/src/common/logic/services/constant.dart';
+import 'package:ihun_commerce/src/common/routes/app_routes_name.dart';
 import 'package:ihun_commerce/src/views/profile/setting_profile/bloc/settings_bloc.dart';
 
 class SettingPage extends StatefulWidget {
@@ -13,19 +16,61 @@ class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
-        body: BlocBuilder<SettingsBloc,SettingsState>(
+        appBar: AppBar(
+          title: const Text('Settings'),
+        ),
+        body: BlocBuilder<SettingsBloc, SettingsState>(
           builder: (context, state) => Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              TextButton.icon(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.logout,
+              Center(
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: const Text('Confirm sign out'),
+                          content: const Text(
+                            'Are you sure you want to sign out?',
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                textStyle:
+                                    Theme.of(context).textTheme.labelLarge,
+                              ),
+                              child: const Text('Cancel'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                textStyle:
+                                    Theme.of(context).textTheme.labelLarge,
+                              ),
+                              child: const Text('Yes'),
+                              onPressed: () {
+                                Global.storageServices
+                                    .remove(AppConstant.STORAGE_USER_TOKEN_KEY);
+                                Navigator.pushNamedAndRemoveUntil(context,
+                                    AppRoutesName.SIGN_IN, (route) => false);
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.logout,
+                  ),
+                  label: const Text(
+                    'Sign out',
+                  ),
                 ),
-                label: const Text(
-                  'Sign out',
-                ),
-              ),
+              )
             ],
           ),
         ));

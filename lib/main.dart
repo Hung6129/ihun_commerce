@@ -7,7 +7,6 @@ import 'src/common/routes/app_routes_pages.dart';
 
 Future<void> main() async {
   await Global.init();
-
   runApp(const MyApp());
 }
 

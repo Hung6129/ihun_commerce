@@ -27,4 +27,8 @@ class StorageServices {
         ? false
         : true;
   }
+
+  Future<bool> remove(String userToken) {
+    return _preferences.remove(userToken);
+  }
 }

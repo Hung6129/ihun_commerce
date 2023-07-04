@@ -1,6 +1,7 @@
 part of 'payments_bloc.dart';
 
-@immutable
-abstract class PaymentsState {}
+class PaymentsState {
+  const PaymentsState();
+}
 
 class PaymentsInitial extends PaymentsState {}
