@@ -13,7 +13,9 @@ class _PaymentsPageState extends State<PaymentsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Payments'),
+      ),
       body: BlocBuilder<PaymentsBloc, PaymentsState>(
         builder: (context, state) => Container(),
       ),

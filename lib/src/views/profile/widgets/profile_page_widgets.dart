@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ihun_commerce/src/common/helpers/palettes.dart';
+import 'package:ihun_commerce/src/common/helpers/text_styles.dart';
 
 Widget buildListViewControls(
   VoidCallback settingOntap,
@@ -9,129 +11,56 @@ Widget buildListViewControls(
 ) {
   return Column(
     children: [
-      /// settings
-      GestureDetector(
-        onTap: settingOntap,
-        child: Row(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.deepPurpleAccent,
-                borderRadius: BorderRadius.circular(
-                  10.h,
-                ),
-              ),
-              width: 40.w,
-              height: 40.h,
-              child: const Center(
-                child: Icon(
-                  Icons.settings,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 10.w,
-            ),
-            const Text('Settings')
-          ],
-        ),
-      ),
-      const SizedBox(
-        height: 30,
-      ),
+      listItem(settingOntap, Icons.settings, 'Settings'),
+      listItem(paymentOntap, Icons.payment, 'Payments'),
+      listItem(favoriteOntap, Icons.favorite, 'Favorites'),
+      listItem(achievementOntap, Icons.star, 'Achievements'),
+    ],
+  );
+}
 
-      /// payments
-      GestureDetector(
-        onTap: paymentOntap,
-        child: Row(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.deepPurpleAccent,
-                borderRadius: BorderRadius.circular(
-                  10.h,
-                ),
-              ),
-              width: 40.w,
-              height: 40.h,
-              child: const Center(
-                child: Icon(
-                  Icons.payment_rounded,
-                  color: Colors.greenAccent,
-                ),
+Widget listItem(
+  VoidCallback func,
+  IconData iconData,
+  String title,
+) {
+  return Padding(
+    padding: EdgeInsets.only(bottom: 20.h),
+    child: GestureDetector(
+      onTap: func,
+      child: Row(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Palettes.p1,
+              borderRadius: BorderRadius.circular(
+                10.h,
               ),
             ),
-            SizedBox(
-              width: 10.w,
+            width: 50.w,
+            height: 40.h,
+            child: Center(
+              child: Icon(iconData, color: Palettes.textWhite, size: 30.h),
             ),
-            const Text('Payment Detail')
-          ],
-        ),
+          ),
+          SizedBox(
+            width: 10.w,
+          ),
+          Text(title, style: TextStyles.defaultStyle.setTextSize(15.sp))
+        ],
       ),
-      const SizedBox(
-        height: 30,
-      ),
+    ),
+  );
+}
 
-      /// achievement
-      GestureDetector(
-        onTap: achievementOntap,
-        child: Row(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.deepPurpleAccent,
-                borderRadius: BorderRadius.circular(
-                  10.h,
-                ),
-              ),
-              width: 40.w,
-              height: 40.h,
-              child: const Center(
-                child: Icon(
-                  Icons.star,
-                  color: Colors.yellowAccent,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 10.w,
-            ),
-            const Text('Achievement')
-          ],
-        ),
+PreferredSizeWidget profileAppBar(VoidCallback meunTapped) {
+  return AppBar(
+    title: Text('Profile', style: TextStyles.defaultStyle.appBarTitle.bold),
+    actions: [
+      IconButton(
+        onPressed: meunTapped,
+        icon: const Icon(Icons.more_vert_rounded),
       ),
-      const SizedBox(
-        height: 30,
-      ),
-
-      /// favorite
-      GestureDetector(
-        onTap: favoriteOntap,
-        child: Row(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.deepPurpleAccent,
-                borderRadius: BorderRadius.circular(
-                  10.h,
-                ),
-              ),
-              width: 40.w,
-              height: 40.h,
-              child: const Center(
-                child: Icon(
-                  Icons.favorite,
-                  color: Colors.redAccent,
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 10.w,
-            ),
-            const Text('Favorite')
-          ],
-        ),
-      )
     ],
   );
 }

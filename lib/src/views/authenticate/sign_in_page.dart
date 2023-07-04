@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ihun_commerce/src/common/logic/authenticate/authenticate_repo.dart';
+
 import 'package:ihun_commerce/src/views/authenticate/sign_in_bloc/sign_in_bloc.dart';
 
 import 'package:ihun_commerce/src/views/authenticate/widgets/authenticate_widgets.dart';
-
-import '../../common/logic/authenticate/authenticate_repo.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -29,17 +28,7 @@ class _SignInPageState extends State<SignInPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 30.h,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20.h),
-                  child: Text(
-                    'Welcome to\nihunEcommerce',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 25.sp),
-                  ),
-                ),
+                headerTitle('Welcome to', 'iHunECommerce'),
                 CusTextFeild(
                   onChange: (value) =>
                       context.read<SignInBloc>().add(SignInEmail(value)),
@@ -55,24 +44,17 @@ class _SignInPageState extends State<SignInPage> {
                   iconData: Icons.lock,
                   txtfType: 'password',
                 ),
+                actionBtn(() {
+                  AuthenticateRepo(context: context)
+                      .handleSignIn('emailAndPassword');
+                }, 'signIn'),
                 SizedBox(
                   height: 10.h,
                 ),
-                ElevatedButton.icon(
-                    onPressed: () {
-                      AuthenticateRepo(context: context)
-                          .handleSignIn("emailAndPassword");
-                    },
-                    icon: const FaIcon(FontAwesomeIcons.arrowRightToBracket),
-                    label: const Text('Sign In')),
                 ForgotPassword(
                   ontap: () {},
                 ),
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
-                  child: const Text('Or sign in with'),
-                ),
+                otherSignIn(),
                 SignInWithThirdParty(ggSignIn: () {}, fbSignIn: () {}),
                 const CusDivider(),
                 const CusAuthNav(authNavType: 'signIn', navTo: '/sign_up')

@@ -7,7 +7,7 @@ import 'package:ihun_commerce/src/common/logic/services/constant.dart';
 
 import '../../../views/authenticate/sign_in_bloc/sign_in_bloc.dart';
 import '../../../views/authenticate/sign_up_bloc/sign_up_bloc.dart';
-import '../../widgets/flutter_toast.dart';
+import '../../helpers/widgets/flutter_toast.dart';
 
 class AuthenticateRepo {
   final BuildContext context;

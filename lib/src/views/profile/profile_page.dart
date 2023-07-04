@@ -16,17 +16,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profile'),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.more_vert_rounded,
-            ),
-          ),
-        ],
-      ),
+      appBar: profileAppBar(() {}),
       body: Padding(
         padding: EdgeInsets.all(10.h),
         child: buildListViewControls(

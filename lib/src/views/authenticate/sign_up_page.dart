@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:ihun_commerce/src/views/authenticate/sign_up_bloc/sign_up_bloc.dart';
 
 import 'package:ihun_commerce/src/views/authenticate/widgets/authenticate_widgets.dart';
 
 import '../../common/logic/authenticate/authenticate_repo.dart';
-
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -31,14 +30,7 @@ class _SignUpPageState extends State<SignUpPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 20.h),
-                child: Text(
-                  'Creating new account for\nihunEcommerce',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 25.sp),
-                ),
-              ),
+              headerTitle('Sign up to enter', 'iHunEcommerce'),
               CusTextFeild(
                   onChange: (value) {
                     context.read<SignUpBloc>().add(UserNameEvent(value));
@@ -72,12 +64,9 @@ class _SignUpPageState extends State<SignUpPage> {
               SizedBox(
                 height: 20.h,
               ),
-              ElevatedButton.icon(
-                  onPressed: () {
-                    AuthenticateRepo(context: context).handleSignUp();
-                  },
-                  icon: const FaIcon(FontAwesomeIcons.key),
-                  label: const Text('Sign Up')),
+              actionBtn(() {
+                AuthenticateRepo(context: context).handleSignUp();
+              }, ''),
               ForgotPassword(
                 ontap: () {},
               ),
