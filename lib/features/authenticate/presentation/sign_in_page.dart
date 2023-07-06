@@ -3,10 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ihun_commerce/features/authenticate/authenticate_repo.dart';
 
-
 import 'sign_in_bloc/sign_in_bloc.dart';
 import 'widgets/authenticate_widgets.dart';
-
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -24,7 +22,7 @@ class _SignInPageState extends State<SignInPage> {
       builder: (context, state) => Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(10.h),
+            padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 100.h),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -56,7 +54,11 @@ class _SignInPageState extends State<SignInPage> {
                   ontap: () {},
                 ),
                 otherSignIn(),
-                SignInWithThirdParty(ggSignIn: () {}, fbSignIn: () {}),
+                SignInWithThirdParty(
+                    ggSignIn: () {
+                      AuthenticateRepo(context: context).signInWithGoogle();
+                    },
+                    fbSignIn: () {}),
                 const CusDivider(),
                 const CusAuthNav(authNavType: 'signIn', navTo: '/sign_up')
               ],

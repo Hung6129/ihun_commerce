@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'core/services/storage_services.dart';
 
-
-
-
 class Global {
   static late StorageServices storageServices;
 

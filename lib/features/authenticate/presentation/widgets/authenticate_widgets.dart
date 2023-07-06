@@ -5,7 +5,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ihun_commerce/config/palettes.dart';
 import 'package:ihun_commerce/config/text_styles.dart';
 
-
 class CusAuthNav extends StatelessWidget {
   const CusAuthNav({
     super.key,
@@ -130,20 +129,17 @@ class ForgotPassword extends StatelessWidget {
 }
 
 Widget headerTitle(String text1, String text2) {
-  return Padding(
-    padding: EdgeInsets.only(top: 70.h),
-    child: Column(
-      children: [
-        Text(
-          text1,
-          style: TextStyles.defaultStyle,
-        ),
-        Text(
-          text2,
-          style: TextStyles.customStyle.appTitle,
-        ),
-      ],
-    ),
+  return Column(
+    children: [
+      Text(
+        text1,
+        style: TextStyles.defaultStyle,
+      ),
+      Text(
+        text2,
+        style: TextStyles.customStyle.appTitle,
+      ),
+    ],
   );
 }
 

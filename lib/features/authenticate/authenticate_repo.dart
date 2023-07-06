@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
 import 'package:ihun_commerce/config/palettes.dart';
 import 'package:ihun_commerce/core/services/constant.dart';
 import 'package:ihun_commerce/global.dart';
@@ -23,12 +25,29 @@ class AuthenticateRepo {
         String password = state.password;
         if (email.isEmpty) {
           // email is emty
-          toastInfor(text: "You need to fill in email address");
+          toastInfor(
+            text: "You need to fill in email address",
+            bgColor: Palettes.p7,
+            textColor: Colors.white,
+          );
           return;
         }
         if (password.isEmpty) {
           // password is emty
-          toastInfor(text: "You need to fill in password");
+          toastInfor(
+            text: "You need to fill in password",
+            bgColor: Palettes.p7,
+            textColor: Colors.white,
+          );
+          return;
+        }
+        if (!email.contains('@') && !email.contains('.')) {
+          // email is emty
+          toastInfor(
+            text: "Invaild email",
+            bgColor: Palettes.p7,
+            textColor: Colors.white,
+          );
           return;
         }
         try {
@@ -147,6 +166,15 @@ class AuthenticateRepo {
         );
         return;
       }
+      if (!email.contains('@') && !email.contains('.')) {
+        // email is emty
+        toastInfor(
+          text: "Invaild email",
+          bgColor: Palettes.p7,
+          textColor: Colors.white,
+        );
+        return;
+      }
       if (reTypePassword.isEmpty) {
         // reTypePassword is emty
         toastInfor(
@@ -207,5 +235,61 @@ class AuthenticateRepo {
 
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
+  }
+
+  Future<void> signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+    try {
+      final user = await FirebaseAuth.instance.signInWithCredential(credential);
+      if (user.user == null) {
+        toastInfor(
+          text: "Something went wrong\nPlease try again next time",
+          bgColor: Palettes.p7,
+          textColor: Colors.white,
+        );
+      } else {
+        toastInfor(
+          text: "Successfully sign in",
+          bgColor: Colors.greenAccent,
+          textColor: Colors.white,
+        );
+        // ignore: use_build_context_synchronously
+        Navigator.pushNamedAndRemoveUntil(
+            context, '/main_page', (route) => false);
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'account-exists-with-different-credential') {
+        toastInfor(
+          text: "The account already exists with a different credential.",
+          bgColor: Palettes.p7,
+          textColor: Colors.white,
+        );
+      } else if (e.code == 'invalid-credential') {
+        toastInfor(
+          text: "Error occurred while accessing credentials. Try again.",
+          bgColor: Palettes.p7,
+          textColor: Colors.white,
+        );
+      }
+    } catch (e) {
+      toastInfor(
+        text: "Error occurred using Google Sign-In. Try again.",
+        bgColor: Palettes.p7,
+        textColor: Colors.white,
+      );
+    }
   }
 }
