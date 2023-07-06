@@ -16,8 +16,7 @@ import '../../features/profile/setting_profile/setting_page.dart';
 import 'app_routes_name.dart';
 
 class AppRoutesPages {
-  static List<PageEntity> routes() {
-    return [
+  static List<PageEntity> routes() => [
       PageEntity(
         routePath: AppRoutesName.SIGN_IN,
         page: const SignInPage(),
@@ -54,7 +53,6 @@ class AppRoutesPages {
         ),
       ),
     ];
-  }
 
   /// return all blocprovider
   static List<dynamic> allBlocProviders(BuildContext context) {

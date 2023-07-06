@@ -4,63 +4,32 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ihun_commerce/config/palettes.dart';
 
-
 extension ExtendedTextStyle on TextStyle {
-  TextStyle get appTitle {
-    return copyWith(
-      fontSize: 25.sp,
-      color: Palettes.p1,
-    );
-  }
+  TextStyle get appTitle => copyWith(fontSize: 25.sp, color: Palettes.p1);
 
-  TextStyle get appBarTitle {
-    return copyWith(
-      fontSize: 22.sp,
-      color: Palettes.p1,
-    );
-  }
+  TextStyle get appBarTitle => copyWith(fontSize: 22.sp, color: Palettes.p1);
 
-  TextStyle get italic {
-    return copyWith(
-      fontWeight: FontWeight.normal,
-      fontStyle: FontStyle.italic,
-    );
-  }
+  TextStyle get italic =>
+      copyWith(fontWeight: FontWeight.normal, fontStyle: FontStyle.italic);
 
-  TextStyle get bold {
-    return copyWith(
-      fontWeight: FontWeight.bold,
-    );
-  }
+  TextStyle get bold => copyWith(fontWeight: FontWeight.bold);
 
-  TextStyle get underLine {
-    return copyWith(decoration: TextDecoration.underline);
-  }
+  TextStyle get underLine => copyWith(decoration: TextDecoration.underline);
 
-  TextStyle get semibold {
-    return copyWith(fontWeight: FontWeight.w600);
-  }
+  TextStyle get semibold => copyWith(fontWeight: FontWeight.w600);
 
-  TextStyle get whiteText {
-    return copyWith(color: Palettes.textWhite);
-  }
+  TextStyle get whiteText => copyWith(color: Palettes.textWhite);
 
-  TextStyle get mediumText {
-    return copyWith(fontSize: 16.sp, fontWeight: FontWeight.w600);
-  }
+  TextStyle get mediumText =>
+      copyWith(fontSize: 16.sp, fontWeight: FontWeight.w600);
 
-  TextStyle get smallText {
-    return copyWith(fontSize: 12.sp, fontWeight: FontWeight.w300);
-  }
+  TextStyle get smallText =>
+      copyWith(fontSize: 12.sp, fontWeight: FontWeight.w300);
 
   // convenience functions
-  TextStyle setColor(Color color) {
-    return copyWith(color: color);
-  }
+  TextStyle setColor(Color color) => copyWith(color: color);
 
-  TextStyle setTextSize(double size) {
-    return copyWith(fontSize: size);
-  }
+  TextStyle setTextSize(double size) => copyWith(fontSize: size);
 }
 
 class TextStyles {

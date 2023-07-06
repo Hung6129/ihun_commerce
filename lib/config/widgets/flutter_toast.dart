@@ -6,8 +6,7 @@ toastInfor({
   required String text,
   Color bgColor = Colors.black,
   Color textColor = Colors.white,
-}) {
-  return Fluttertoast.showToast(
+}) => Fluttertoast.showToast(
     msg: text,
     backgroundColor: bgColor,
     textColor: textColor,
@@ -16,4 +15,3 @@ toastInfor({
     gravity: ToastGravity.TOP,
     fontSize: 16.sp,
   );
-}

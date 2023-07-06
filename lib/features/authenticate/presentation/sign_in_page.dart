@@ -56,7 +56,7 @@ class _SignInPageState extends State<SignInPage> {
                 otherSignIn(),
                 SignInWithThirdParty(
                     ggSignIn: () {
-                      AuthenticateRepo(context: context).signInWithGoogle();
+                      AuthenticateRepo(context: context).handleSignInWithGoogle();
                     },
                     fbSignIn: () {}),
                 const CusDivider(),

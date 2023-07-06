@@ -233,11 +233,13 @@ class AuthenticateRepo {
     }
   }
 
+  // sign out 
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
   }
 
-  Future<void> signInWithGoogle() async {
+  // using google mail to sign in
+  Future<void> handleSignInWithGoogle() async {
     // Trigger the authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
@@ -265,6 +267,12 @@ class AuthenticateRepo {
           text: "Successfully sign in",
           bgColor: Colors.greenAccent,
           textColor: Colors.white,
+        );
+        Global.storageServices
+            .setString(AppConstant.STORAGE_USER_TOKEN_KEY, '123456789');
+        Global.storageServices.setBool(
+          AppConstant.STORAGE_DEVICE_OPEN_FIRST_TIME,
+          true,
         );
         // ignore: use_build_context_synchronously
         Navigator.pushNamedAndRemoveUntil(

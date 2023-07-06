@@ -15,20 +15,15 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [...AppRoutesPages.allBlocProviders(context)],
-      child: ScreenUtilInit(
-        builder: (context, child) => MaterialApp(
-          title: 'iHun E-Commerce',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            useMaterial3: true,
-            brightness: Brightness.light,
+  Widget build(BuildContext context) => MultiBlocProvider(
+        providers: [...AppRoutesPages.allBlocProviders(context)],
+        child: ScreenUtilInit(
+          builder: (context, child) => MaterialApp(
+            title: 'iHun E-Commerce',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(useMaterial3: true, brightness: Brightness.light),
+            onGenerateRoute: AppRoutesPages.generateRouteSettings,
           ),
-          onGenerateRoute: AppRoutesPages.generateRouteSettings,
         ),
-      ),
-    );
-  }
+      );
 }
