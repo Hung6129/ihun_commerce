@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ihun_commerce/src/views/profile/payment_profile/bloc/payments_bloc.dart';
+
+
+import 'bloc/payments_bloc.dart';
 
 class PaymentsPage extends StatefulWidget {
   const PaymentsPage({super.key});

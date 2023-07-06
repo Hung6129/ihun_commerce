@@ -3,6 +3,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ihun_commerce/config/palettes.dart';
+import 'package:ihun_commerce/config/text_styles.dart';
+
 
 final List<String> imgList = [
   'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
@@ -120,9 +123,12 @@ Widget menuText() {
       children: [
         Text(
           'Pick your product for today',
-          style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+          style: TextStyles.defaultStyle.mediumText.setColor(Palettes.p1),
         ),
-        const Text('See all'),
+        Text(
+          'See all',
+          style: TextStyles.defaultStyle.smallText,
+        ),
       ],
     ),
   );
@@ -154,23 +160,17 @@ Widget sliverGridProductItem(List<String> listItem) {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
+                  Text('Chek this out',
+                      style: TextStyles.customStyle.whiteText.bold
+                          .setTextSize(18.sp)),
                   Text(
-                    'Chek this out',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15.sp),
-                  ),
-                  Text(
-                    'My product is the best',
+                    'This product is the best',
                     maxLines: 1,
-                    style: TextStyle(
-                      overflow: TextOverflow.fade,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12.sp,
-                    ),
+                    style: TextStyles.defaultStyle.whiteText.setTextSize(12.sp),
                   ),
+                  SizedBox(
+                    height: 10.h,
+                  )
                 ],
               ),
             )),

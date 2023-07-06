@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ihun_commerce/src/common/logic/authenticate/authenticate_repo.dart';
+import 'package:ihun_commerce/features/authenticate/authenticate_repo.dart';
 
-import 'package:ihun_commerce/src/views/authenticate/sign_in_bloc/sign_in_bloc.dart';
 
-import 'package:ihun_commerce/src/views/authenticate/widgets/authenticate_widgets.dart';
+import 'sign_in_bloc/sign_in_bloc.dart';
+import 'widgets/authenticate_widgets.dart';
+
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});

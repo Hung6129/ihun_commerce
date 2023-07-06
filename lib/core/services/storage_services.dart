@@ -1,4 +1,4 @@
-import 'package:ihun_commerce/src/common/logic/services/constant.dart';
+import 'package:ihun_commerce/core/services/constant.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class StorageServices {

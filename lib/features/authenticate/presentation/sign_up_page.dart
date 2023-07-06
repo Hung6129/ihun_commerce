@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:ihun_commerce/src/views/authenticate/sign_up_bloc/sign_up_bloc.dart';
+import '../authenticate_repo.dart';
+import 'sign_up_bloc/sign_up_bloc.dart';
+import 'widgets/authenticate_widgets.dart';
 
-import 'package:ihun_commerce/src/views/authenticate/widgets/authenticate_widgets.dart';
-
-import '../../common/logic/authenticate/authenticate_repo.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});

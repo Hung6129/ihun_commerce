@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'global.dart';
-import 'src/common/routes/app_routes_pages.dart';
+import 'config/routes/app_routes_pages.dart';
 
 Future<void> main() async {
   await Global.init();

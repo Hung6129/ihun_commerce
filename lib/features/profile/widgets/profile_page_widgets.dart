@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ihun_commerce/src/common/helpers/palettes.dart';
-import 'package:ihun_commerce/src/common/helpers/text_styles.dart';
+
+import '../../../config/palettes.dart';
+import '../../../config/text_styles.dart';
+
 
 Widget buildListViewControls(
   VoidCallback settingOntap,

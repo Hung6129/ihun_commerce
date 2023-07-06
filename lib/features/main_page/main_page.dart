@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ihun_commerce/config/components.dart';
+import 'package:ihun_commerce/config/palettes.dart';
 
-import 'package:ihun_commerce/src/views/cart/cart_page.dart';
-import 'package:ihun_commerce/src/views/favorite/favorite_page.dart';
-import 'package:ihun_commerce/src/views/home/home_page.dart';
-import 'package:ihun_commerce/src/views/main_page/bloc/main_bloc.dart';
-import 'package:ihun_commerce/src/views/profile/profile_page.dart';
-
-import '../../common/helpers/components.dart';
+import '../cart/cart_page.dart';
+import '../favorite/favorite_page.dart';
+import '../home/home_page.dart';
+import '../profile/profile_page.dart';
+import 'bloc/main_bloc.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({
@@ -43,6 +44,9 @@ class _MainPageState extends State<MainPage> {
               navDrawerIndex = selectedIndex;
             });
           },
+          height: 50.h,
+          indicatorColor: Palettes.p3,
+          surfaceTintColor: Palettes.textWhite,
           selectedIndex: navDrawerIndex,
           destinations: appBarDestinations,
         ),

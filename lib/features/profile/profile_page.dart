@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ihun_commerce/src/common/routes/app_routes_name.dart';
-import 'package:ihun_commerce/src/views/profile/widgets/profile_page_widgets.dart';
+import 'package:ihun_commerce/config/routes/app_routes_name.dart';
+
+
+import 'widgets/profile_page_widgets.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({

@@ -2,19 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ihun_commerce/global.dart';
 
-import 'package:ihun_commerce/src/views/authenticate/sign_in_page.dart';
-import 'package:ihun_commerce/src/views/authenticate/sign_up_page.dart';
-import 'package:ihun_commerce/src/views/authenticate/sign_up_bloc/sign_up_bloc.dart';
-import 'package:ihun_commerce/src/views/main_page/bloc/main_bloc.dart';
-import 'package:ihun_commerce/src/views/main_page/main_page.dart';
-import 'package:ihun_commerce/src/views/profile/payment_profile/bloc/payments_bloc.dart';
-import 'package:ihun_commerce/src/views/profile/payment_profile/payments_page.dart';
-import 'package:ihun_commerce/src/views/profile/setting_profile/bloc/settings_bloc.dart';
 
-import 'package:ihun_commerce/src/views/profile/setting_profile/setting_page.dart';
-
-import '../../views/authenticate/sign_in_bloc/sign_in_bloc.dart';
-
+import '../../features/authenticate/presentation/sign_in_bloc/sign_in_bloc.dart';
+import '../../features/authenticate/presentation/sign_in_page.dart';
+import '../../features/authenticate/presentation/sign_up_bloc/sign_up_bloc.dart';
+import '../../features/authenticate/presentation/sign_up_page.dart';
+import '../../features/main_page/bloc/main_bloc.dart';
+import '../../features/main_page/main_page.dart';
+import '../../features/profile/payment_profile/bloc/payments_bloc.dart';
+import '../../features/profile/payment_profile/payments_page.dart';
+import '../../features/profile/setting_profile/bloc/settings_bloc.dart';
+import '../../features/profile/setting_profile/setting_page.dart';
 import 'app_routes_name.dart';
 
 class AppRoutesPages {

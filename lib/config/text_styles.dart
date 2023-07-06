@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ihun_commerce/src/common/helpers/palettes.dart';
+import 'package:ihun_commerce/config/palettes.dart';
+
 
 extension ExtendedTextStyle on TextStyle {
   TextStyle get appTitle {
@@ -42,6 +43,14 @@ extension ExtendedTextStyle on TextStyle {
 
   TextStyle get whiteText {
     return copyWith(color: Palettes.textWhite);
+  }
+
+  TextStyle get mediumText {
+    return copyWith(fontSize: 16.sp, fontWeight: FontWeight.w600);
+  }
+
+  TextStyle get smallText {
+    return copyWith(fontSize: 12.sp, fontWeight: FontWeight.w300);
   }
 
   // convenience functions
