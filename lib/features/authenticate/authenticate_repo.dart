@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'package:ihun_commerce/config/palettes.dart';
-import 'package:ihun_commerce/core/services/constant.dart';
+import 'package:ihun_commerce/config/services/constant.dart';
 import 'package:ihun_commerce/global.dart';
 
 import '../../../config/widgets/flutter_toast.dart';

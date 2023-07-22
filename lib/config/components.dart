@@ -15,12 +15,6 @@ const List<NavigationDestination> appBarDestinations = [
   ),
   NavigationDestination(
     tooltip: '',
-    icon: Icon(Icons.shopping_bag_outlined),
-    label: 'Cart',
-    selectedIcon: Icon(Icons.shopping_bag),
-  ),
-  NavigationDestination(
-    tooltip: '',
     icon: Icon(Icons.person_2_outlined),
     label: 'Profile',
     selectedIcon: Icon(Icons.person_2),

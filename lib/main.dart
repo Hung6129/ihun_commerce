@@ -18,6 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => MultiBlocProvider(
         providers: [...AppRoutesPages.allBlocProviders(context)],
         child: ScreenUtilInit(
+          designSize: const Size(375, 812),
+          minTextAdapt: true,
           builder: (context, child) => MaterialApp(
             title: 'iHun E-Commerce',
             debugShowCheckedModeBanner: false,

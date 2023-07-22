@@ -20,6 +20,13 @@ extension ExtendedTextStyle on TextStyle {
 
   TextStyle get whiteText => copyWith(color: Palettes.textWhite);
 
+  TextStyle get blackText => copyWith(color: Palettes.textBlack);
+
+  TextStyle get greyText => copyWith(color: Palettes.textGrey);
+
+  TextStyle get largeText =>
+      copyWith(fontSize: 20.sp, fontWeight: FontWeight.w600);
+
   TextStyle get mediumText =>
       copyWith(fontSize: 16.sp, fontWeight: FontWeight.w600);
 
@@ -30,6 +37,12 @@ extension ExtendedTextStyle on TextStyle {
   TextStyle setColor(Color color) => copyWith(color: color);
 
   TextStyle setTextSize(double size) => copyWith(fontSize: size);
+
+  TextStyle setFontWeight(FontWeight fontWeight) =>
+      copyWith(fontWeight: fontWeight);
+
+  TextStyle setLetterSpacing(double spacing) =>
+      copyWith(letterSpacing: spacing);
 }
 
 class TextStyles {

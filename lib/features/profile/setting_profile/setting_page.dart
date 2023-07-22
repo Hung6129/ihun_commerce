@@ -5,7 +5,7 @@ import 'package:ihun_commerce/global.dart';
 import 'package:ihun_commerce/config/routes/app_routes_name.dart';
 
 
-import '../../../core/services/constant.dart';
+import '../../../config/services/constant.dart';
 import 'bloc/settings_bloc.dart';
 
 class SettingPage extends StatefulWidget {

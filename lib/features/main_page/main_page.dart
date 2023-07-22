@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ihun_commerce/config/components.dart';
 import 'package:ihun_commerce/config/palettes.dart';
 
-import '../cart/cart_page.dart';
 import '../favorite/favorite_page.dart';
 import '../home/home_page.dart';
 import '../profile/profile_page.dart';
@@ -28,7 +27,6 @@ class _MainPageState extends State<MainPage> {
     pageWidget = [
       const HomePage(),
       const FavoritePage(),
-      const CartPage(),
       const ProfilePage(),
     ];
   }
@@ -44,7 +42,7 @@ class _MainPageState extends State<MainPage> {
               navDrawerIndex = selectedIndex;
             });
           },
-          height: 50.h,
+          height: 55.h,
           indicatorColor: Palettes.p3,
           surfaceTintColor: Palettes.textWhite,
           selectedIndex: navDrawerIndex,

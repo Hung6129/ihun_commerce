@@ -4,6 +4,7 @@ class Palettes {
   /// Text color
   static const Color textWhite = Color(0xFFFFFFFF);
   static const Color textBlack = Color(0xFF000000);
+  static const Color textGrey = Color(0xFF9E9E9E);
 
   /// Main palette
   static const Color p1 = Color(0xFF6527BE);
