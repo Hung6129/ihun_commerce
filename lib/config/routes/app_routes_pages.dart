@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ihun_commerce/global.dart';
 
+import '../../bloc/main_bloc/main_bloc.dart';
 import '../../bloc/sign_in_bloc/sign_in_bloc.dart';
 import '../../bloc/sign_up_bloc/sign_up_bloc.dart';
 import '../../presentation/authenticate/views/sign_in_page.dart';
 import '../../presentation/authenticate/views/sign_up_page.dart';
-import '../../presentation/main_page/bloc/main_bloc.dart';
-import '../../presentation/main_page/main_page.dart';
+
+import '../../presentation/main_page.dart';
 import '../../presentation/profile/payment_profile/bloc/payments_bloc.dart';
 import '../../presentation/profile/payment_profile/payments_page.dart';
 import '../../presentation/profile/setting_profile/bloc/settings_bloc.dart';
