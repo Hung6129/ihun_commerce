@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import 'package:ihun_commerce/config/palettes.dart';
 import 'package:ihun_commerce/config/services/constant.dart';
 import 'package:ihun_commerce/global.dart';
 
 import '../../../config/widgets/flutter_toast.dart';
-import 'presentation/sign_in_bloc/sign_in_bloc.dart';
-import 'presentation/sign_up_bloc/sign_up_bloc.dart';
+
+import '../../bloc/sign_in_bloc/sign_in_bloc.dart';
+import '../../bloc/sign_up_bloc/sign_up_bloc.dart';
+import '../../presentation/authenticate/views/sign_in_page.dart';
+import '../styles/palettes.dart';
 
 class AuthenticateRepo {
   final BuildContext context;
@@ -206,8 +208,12 @@ class AuthenticateRepo {
             textColor: Colors.white,
           );
 
-          // ignore: use_build_context_synchronously
-          Navigator.of(context).pop();
+          if (!context.mounted) return;
+          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+            builder: (context) {
+              return const SignInPage();
+            },
+          ), (route) => false);
         }
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
@@ -233,7 +239,7 @@ class AuthenticateRepo {
     }
   }
 
-  // sign out 
+  // sign out
   Future<void> signOut() async {
     await FirebaseAuth.instance.signOut();
   }

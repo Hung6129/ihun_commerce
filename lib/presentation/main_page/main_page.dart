@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ihun_commerce/config/components.dart';
-import 'package:ihun_commerce/config/palettes.dart';
+import 'package:ihun_commerce/presentation/main_page/components.dart';
 
+import '../../config/styles/palettes.dart';
 import '../favorite/favorite_page.dart';
 import '../home/home_page.dart';
 import '../profile/profile_page.dart';

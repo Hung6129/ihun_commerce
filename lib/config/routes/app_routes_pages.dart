@@ -2,57 +2,56 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ihun_commerce/global.dart';
 
-
-import '../../features/authenticate/presentation/sign_in_bloc/sign_in_bloc.dart';
-import '../../features/authenticate/presentation/sign_in_page.dart';
-import '../../features/authenticate/presentation/sign_up_bloc/sign_up_bloc.dart';
-import '../../features/authenticate/presentation/sign_up_page.dart';
-import '../../features/main_page/bloc/main_bloc.dart';
-import '../../features/main_page/main_page.dart';
-import '../../features/profile/payment_profile/bloc/payments_bloc.dart';
-import '../../features/profile/payment_profile/payments_page.dart';
-import '../../features/profile/setting_profile/bloc/settings_bloc.dart';
-import '../../features/profile/setting_profile/setting_page.dart';
+import '../../bloc/sign_in_bloc/sign_in_bloc.dart';
+import '../../bloc/sign_up_bloc/sign_up_bloc.dart';
+import '../../presentation/authenticate/views/sign_in_page.dart';
+import '../../presentation/authenticate/views/sign_up_page.dart';
+import '../../presentation/main_page/bloc/main_bloc.dart';
+import '../../presentation/main_page/main_page.dart';
+import '../../presentation/profile/payment_profile/bloc/payments_bloc.dart';
+import '../../presentation/profile/payment_profile/payments_page.dart';
+import '../../presentation/profile/setting_profile/bloc/settings_bloc.dart';
+import '../../presentation/profile/setting_profile/setting_page.dart';
 import 'app_routes_name.dart';
 
 class AppRoutesPages {
   static List<PageEntity> routes() => [
-      PageEntity(
-        routePath: AppRoutesName.SIGN_IN,
-        page: const SignInPage(),
-        bloc: BlocProvider(
-          create: (_) => SignInBloc(),
+        PageEntity(
+          routePath: AppRoutesName.SIGN_IN,
+          page: const SignInPage(),
+          bloc: BlocProvider(
+            create: (_) => SignInBloc(),
+          ),
         ),
-      ),
-      PageEntity(
-        routePath: AppRoutesName.SIGN_UP,
-        page: const SignUpPage(),
-        bloc: BlocProvider(
-          create: (_) => SignUpBloc(),
+        PageEntity(
+          routePath: AppRoutesName.SIGN_UP,
+          page: const SignUpPage(),
+          bloc: BlocProvider(
+            create: (_) => SignUpBloc(),
+          ),
         ),
-      ),
-      PageEntity(
-        routePath: AppRoutesName.MAINPAGE,
-        page: const MainPage(),
-        bloc: BlocProvider(
-          create: (context) => MainBloc(),
+        PageEntity(
+          routePath: AppRoutesName.MAINPAGE,
+          page: const MainPage(),
+          bloc: BlocProvider(
+            create: (context) => MainBloc(),
+          ),
         ),
-      ),
-      PageEntity(
-        routePath: AppRoutesName.SETTINGS,
-        page: const SettingPage(),
-        bloc: BlocProvider(
-          create: (context) => SettingsBloc(),
+        PageEntity(
+          routePath: AppRoutesName.SETTINGS,
+          page: const SettingPage(),
+          bloc: BlocProvider(
+            create: (context) => SettingsBloc(),
+          ),
         ),
-      ),
-      PageEntity(
-        routePath: AppRoutesName.PAYMENTS,
-        page: const PaymentsPage(),
-        bloc: BlocProvider(
-          create: (context) => PaymentsBloc(),
+        PageEntity(
+          routePath: AppRoutesName.PAYMENTS,
+          page: const PaymentsPage(),
+          bloc: BlocProvider(
+            create: (context) => PaymentsBloc(),
+          ),
         ),
-      ),
-    ];
+      ];
 
   /// return all blocprovider
   static List<dynamic> allBlocProviders(BuildContext context) {

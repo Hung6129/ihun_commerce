@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ihun_commerce/config/palettes.dart';
+
+import 'palettes.dart';
+
 
 extension ExtendedTextStyle on TextStyle {
   TextStyle get appTitle => copyWith(fontSize: 25.sp, color: Palettes.p1);

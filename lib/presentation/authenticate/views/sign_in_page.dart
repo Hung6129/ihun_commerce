@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ihun_commerce/features/authenticate/authenticate_repo.dart';
 
-import 'sign_in_bloc/sign_in_bloc.dart';
-import 'widgets/authenticate_widgets.dart';
+import '../../../bloc/sign_in_bloc/sign_in_bloc.dart';
+import '../../../config/services/authenticate_repo.dart';
+
+import '../widgets/authenticate_widgets.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -56,7 +57,8 @@ class _SignInPageState extends State<SignInPage> {
                 otherSignIn(),
                 SignInWithThirdParty(
                     ggSignIn: () {
-                      AuthenticateRepo(context: context).handleSignInWithGoogle();
+                      AuthenticateRepo(context: context)
+                          .handleSignInWithGoogle();
                     },
                     fbSignIn: () {}),
                 const CusDivider(),

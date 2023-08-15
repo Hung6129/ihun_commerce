@@ -2,8 +2,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ihun_commerce/config/palettes.dart';
-import 'package:ihun_commerce/config/text_styles.dart';
+
+import '../../../config/styles/palettes.dart';
+import '../../../config/styles/text_styles.dart';
 
 class CusAuthNav extends StatelessWidget {
   const CusAuthNav({
