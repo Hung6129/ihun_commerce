@@ -87,7 +87,7 @@ class AuthenticateRepo {
               AppConstant.STORAGE_DEVICE_OPEN_FIRST_TIME,
               true,
             );
-            // ignore: use_build_context_synchronously
+            if (!context.mounted) return;
             Navigator.pushNamedAndRemoveUntil(
                 context, '/main_page', (route) => false);
             return;
@@ -209,11 +209,8 @@ class AuthenticateRepo {
           );
 
           if (!context.mounted) return;
-          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
-            builder: (context) {
-              return const SignInPage();
-            },
-          ), (route) => false);
+          Navigator.pushNamedAndRemoveUntil(
+              context, '/sign_in', (route) => false);
         }
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
@@ -280,7 +277,7 @@ class AuthenticateRepo {
           AppConstant.STORAGE_DEVICE_OPEN_FIRST_TIME,
           true,
         );
-        // ignore: use_build_context_synchronously
+        if (!context.mounted) return;
         Navigator.pushNamedAndRemoveUntil(
             context, '/main_page', (route) => false);
       }
